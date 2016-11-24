@@ -12,6 +12,5 @@ cp /bd_build/services/cron/cron.runit /etc/service/cron/run
 rm /etc/cron.daily/apt-compat
 rm /etc/cron.daily/dpkg
 rm /etc/cron.daily/passwd
-rm /etc/cron.daily/standard
 rm /etc/cron.daily/upstart
 rm /etc/cron.weekly/fstrim
