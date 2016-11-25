@@ -10,3 +10,10 @@ RUN /bd_build/prepare.sh && \
 	/bd_build/cleanup.sh
 
 CMD ["/sbin/my_init"]
+
+WORKDIR /
+
+ENV DEBIAN_FRONTEND teletype
+ENV PYTHONIOENCODING UTF-8
+ENV HOME /root
+
