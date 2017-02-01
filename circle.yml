@@ -6,6 +6,7 @@ dependencies:
   override:
     - docker info
     - docker build --rm=false -t hyperknot/baseimage16:$CIRCLE_TAG image
+    - docker images
 
 test:
   override:
