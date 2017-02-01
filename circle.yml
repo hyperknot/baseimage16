@@ -1,0 +1,15 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t hyperknot/baseimage16:latest image
+
+deployment:
+  hub:
+    tag: /[0-9]+(\.[0-9]+)*/
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push hyperknot/baseimage16:latest
