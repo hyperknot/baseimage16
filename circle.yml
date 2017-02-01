@@ -2,9 +2,9 @@ machine:
   services:
     - docker
   environment:
-    docker_user: hyperknot
-    docker_repo: baseimage16
-    docker_root: image
+    image_user: hyperknot
+    image_repo: baseimage16
+    image_root: image
 
 # dependencies:
 #   override:
@@ -20,8 +20,8 @@ deployment:
     commands:
       - pip install -U docker-squash
       - docker info
-      - docker build --rm=false -t $docker_user/$docker_repo:build $docker_root
-      - docker-squash -t $docker_user/$docker_repo:$CIRCLE_TAG $docker_user/$docker_repo:build
+      - docker build --rm=false -t $image_user/$image_repo:build $image_root
+      - docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build
       - docker images
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push $docker_user/$docker_repo:$CIRCLE_TAG
+      - docker push $image_user/$image_repo:$CIRCLE_TAG
