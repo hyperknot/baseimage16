@@ -19,7 +19,7 @@ deployment:
     commands:
       - docker info
       - docker build --rm=false -t $docker_user/$docker_repo:build image
-      - docker-squash -t $docker_user/$docker_repo:CIRCLE_TAG $docker_user/$docker_repo:build
+      - docker-squash -t $docker_user/$docker_repo:$CIRCLE_TAG $docker_user/$docker_repo:build
       - docker images
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push $docker_user/$docker_repo:$CIRCLE_TAG
