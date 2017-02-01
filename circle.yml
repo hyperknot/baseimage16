@@ -7,6 +7,10 @@ dependencies:
     - docker info
     - docker build --rm=false -t hyperknot/baseimage16:latest image
 
+test:
+  override:
+    - echo "done"
+
 deployment:
   hub:
     tag: /[0-9]+(\.[0-9]+)*/
