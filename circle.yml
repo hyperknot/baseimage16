@@ -2,11 +2,9 @@ machine:
   services:
     - docker
 
-dependencies:
-  override:
-    - docker info
-    - docker build --rm=false -t hyperknot/baseimage16:$CIRCLE_TAG image
-    - docker images
+# dependencies:
+  # override:
+
 
 test:
   override:
@@ -16,5 +14,8 @@ deployment:
   hub:
     tag: /[0-9]+(\.[0-9]+)*/
     commands:
+      - docker info
+      - docker images
+      - docker build --rm=false -t hyperknot/baseimage16:$CIRCLE_TAG image
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
       - docker push hyperknot/baseimage16:$CIRCLE_TAG
