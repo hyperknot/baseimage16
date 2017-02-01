@@ -6,6 +6,11 @@ machine:
     image_repo: baseimage16
     image_root: image
 
+general:
+  branches:
+    only:
+      - skip
+
 # dependencies:
 #   override:
 #     -
