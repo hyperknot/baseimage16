@@ -5,9 +5,9 @@ machine:
     docker_user: hyperknot
     docker_repo: baseimage16
 
-dependencies:
-  override:
-    - pip install -U docker-squash
+# dependencies:
+#   override:
+#     -
 
 test:
   override:
@@ -17,6 +17,7 @@ deployment:
   hub:
     tag: /[0-9]+(\.[0-9]+)*/
     commands:
+      - pip install -U docker-squash
       - docker info
       - docker build --rm=false -t $docker_user/$docker_repo:build image
       - docker-squash -t $docker_user/$docker_repo:$CIRCLE_TAG $docker_user/$docker_repo:build
