@@ -17,6 +17,7 @@ FROM hyperknot/baseimage16:latest
 - removed SSH service
 - removed pam fix, as in my testing I found Ubuntu 16.04 was not affected anymore
 - added support for pre- and post- service shutdown scripts. Just place scripts in `/etc/my_init.pre_shutdown.d` or `/etc/my_init.post_shutdown.d`
+- all services stopped by default (you need to enable the ones you need by removing the `down` files)
 
 
 ## All changes
