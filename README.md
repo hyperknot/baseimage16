@@ -1,3 +1,5 @@
+
+
 # baseimage16
 
 **An updated version of baseimage-docker, including community provided Ubuntu 16.04 fixes**
@@ -23,4 +25,16 @@ FROM hyperknot/baseimage16:latest
 ## All changes
 
 All diffs from the original baseimage-docker can be [seen here](https://github.com/phusion/baseimage-docker/compare/master...hyperknot:master).
+
+
+## Versions
+
+### 1.0.1
+
+No changes, 2017-02-12 update for packages.
+
+
+### 1.0.0
+
+Initial version
 
