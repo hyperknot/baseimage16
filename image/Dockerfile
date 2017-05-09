@@ -11,12 +11,10 @@ RUN /bd_build/prepare.sh && \
     touch /etc/service/syslog-forwarder/down && \
     touch /etc/service/cron/down
 
-
-CMD ["/sbin/my_init"]
-
 WORKDIR /
 
 ENV DEBIAN_FRONTEND teletype
 ENV PYTHONIOENCODING UTF-8
 ENV HOME /root
 
+CMD ["/sbin/my_init"]
