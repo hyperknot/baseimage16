@@ -13,14 +13,14 @@ import sys
 import time
 
 KILL_PROCESS_TIMEOUT = int(os.environ.get('KILL_PROCESS_TIMEOUT', 5))
-KILL_ALL_PROCESSES_TIMEOUT = int(os.environ.get('KILL_ALL_PROCESSES_TIMEOUT', 5))
+KILL_ALL_PROCESSES_TIMEOUT = int(os.environ.get('KILL_ALL_PROCESSES_TIMEOUT', 120))
 
 LOG_LEVEL_ERROR = 1
 LOG_LEVEL_WARN = 1
 LOG_LEVEL_INFO = 2
 LOG_LEVEL_DEBUG = 3
 
-SHENV_NAME_WHITELIST_REGEX = re.compile('[^\w\-_\.]')
+SHENV_NAME_WHITELIST_REGEX = re.compile('\W')
 
 log_level = None
 
@@ -130,6 +130,7 @@ def shquote(s):
 
 
 def sanitize_shenvname(s):
+    """Return string with [0-9a-zA-Z_] characters"""
     return re.sub(SHENV_NAME_WHITELIST_REGEX, "_", s)
 
 
