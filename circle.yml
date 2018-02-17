@@ -26,7 +26,7 @@ deployment:
   hub:
     tag: /[0-9]+(\.[0-9]+)*/
     commands:
-      - pip install -U docker-squash
+      - pip install -U docker-squash 'docker < 3' --disable-pip-version-check
       - docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
       # - docker tag $image_user/$image_repo:build_cache $image_user/$image_repo:$CIRCLE_TAG
 
