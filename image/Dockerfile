@@ -8,7 +8,6 @@ RUN /bd_build/prepare.sh && \
 	/bd_build/utilities.sh && \
 	/bd_build/cleanup.sh && \
     touch /etc/service/syslog-ng/down && \
-    touch /etc/service/syslog-forwarder/down && \
     touch /etc/service/cron/down
 
 WORKDIR /
