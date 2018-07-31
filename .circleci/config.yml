@@ -9,8 +9,6 @@ jobs:
     docker:
       - image: circleci/python:3.7
 
-    tag: /.*/
-
     steps:
       - checkout
       - run: env
@@ -31,8 +29,13 @@ jobs:
       # - run: docker push $image_user/$image_repo:$CIRCLE_TAG
 
 
-deployment:
-  fake_deploy_for_cci2:
-    tag: /.*/
-    commands:
-      - echo "make tags run in 2.0"
+workflows:
+  version: 2
+  tagged-build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+          # tags:
+            # only: /^v.*/
