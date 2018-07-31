@@ -26,3 +26,12 @@ jobs:
       - run: docker images
 
       - run: docker push $image_user/$image_repo:$CIRCLE_TAG
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^\d+\.\d+\.\d+$/
