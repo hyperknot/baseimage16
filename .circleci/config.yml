@@ -15,10 +15,11 @@ jobs:
 
     steps:
       - checkout
+      - run: env
+      - run: echo $CIRCLE_TAG
       # - setup_remote_docker
 
-      - run: env
-      - run: docker version
+      # - run: docker version
 
       # - run:
           # command: docker build -t $image_user/$image_repo:build_cache .
@@ -31,11 +32,9 @@ jobs:
 
       # - run: docker push $image_user/$image_repo:$CIRCLE_TAG
 
-workflows:
-  version: 2
-  main:
-    jobs:
-      - build:
-          filters:
-            tags:
-              only: /^\d+\.\d+\.\d+$/
+
+deployment:
+  fake_deploy_for_cci2:
+    tag: /.*/
+    commands:
+      - echo "make tags run in 2.0"
