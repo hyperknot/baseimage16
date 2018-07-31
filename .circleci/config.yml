@@ -9,6 +9,8 @@ jobs:
     docker:
       - image: circleci/python:3.7
 
+    tag: /.*/
+
     steps:
       - checkout
       - run: env
