@@ -9,23 +9,27 @@ jobs:
     docker:
       - image: circleci/python:3.7
 
+    branches:
+      only:
+        - no_branch
+
     steps:
       - checkout
-      - setup_remote_docker
+      # - setup_remote_docker
 
       - run: env
-      - run: docker version
+      # - run: docker version
 
-      - run:
-          command: docker build -t $image_user/$image_repo:build_cache .
-          working_directory: image
+      # - run:
+          # command: docker build -t $image_user/$image_repo:build_cache .
+          # working_directory: image
 
-      - run: sudo pip install docker-squash --disable-pip-version-check
-      - run: docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
+      # - run: sudo pip install docker-squash --disable-pip-version-check
+      # - run: docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
 
-      - run: docker images
+      # - run: docker images
 
-      - run: docker push $image_user/$image_repo:$CIRCLE_TAG
+      # - run: docker push $image_user/$image_repo:$CIRCLE_TAG
 
 workflows:
   version: 2
