@@ -9,10 +9,6 @@ jobs:
     docker:
       - image: circleci/python:3.7
 
-    branches:
-      only:
-        - no_branch
-
     steps:
       - checkout
       - run: env
