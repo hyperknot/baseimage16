@@ -13,15 +13,15 @@ jobs:
       - checkout
       - setup_remote_docker
 
-      - run: sudo docker version
+      - run: docker version
 
       - run:
-          command: sudo docker build -t $image_user/$image_repo:build_cache .
+          command: docker build -t $image_user/$image_repo:build_cache .
           working_directory: image
 
-      - run: sudo pip install docker-squash --disable-pip-version-check
-      - run: sudo docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
+      - run: pip install docker-squash --disable-pip-version-check
+      - run: docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
 
-      - run: sudo docker images
+      - run: docker images
 
-      - run: sudo docker push $image_user/$image_repo:$CIRCLE_TAG
+      - run: docker push $image_user/$image_repo:$CIRCLE_TAG
