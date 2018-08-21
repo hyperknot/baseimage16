@@ -6,11 +6,13 @@ See full readme at the original [baseimage-docker repository](https://github.com
 
 
 ## How to use
-You can use this in your Dockerfile by setting:
+You can use this in your Dockerfile by setting the following FROM line. 
 
 ```
-FROM hyperknot/baseimage16:latest
+FROM hyperknot/baseimage16:1.0.6
 ```
+
+Look up the latest release from the [GitHub releases](https://github.com/hyperknot/baseimage16/releases) page.
 
 ## Notable changes
 
