@@ -9,7 +9,7 @@ See full readme at the original [baseimage-docker repository](https://github.com
 You can use this in your Dockerfile by setting the following FROM line.
 
 ```
-FROM hyperknot/baseimage16:1.0.7
+FROM hyperknot/baseimage16:1.0.8
 ```
 
 Look up the latest release from the [GitHub releases](https://github.com/hyperknot/baseimage16/releases) page.
