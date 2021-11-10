@@ -16,6 +16,15 @@ sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list
 apt-get update
 
+## Fix locale.
+$minimal_apt_get_install language-pack-en
+locale-gen --purge en_US.UTF-8
+update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+echo -n en_US.UTF-8 > /etc/container_environment/LANG
+echo -n en_US.UTF-8 > /etc/container_environment/LC_CTYPE
+echo -n en_US.UTF-8 > /etc/container_environment/LC_ALL
+echo -n UTF-8 > /etc/container_environment/PYTHONIOENCODING
+
 ## Fix some issues with APT packages.
 ## See https://github.com/dotcloud/docker/issues/1024
 dpkg-divert --local --rename --add /sbin/initctl
@@ -40,11 +49,4 @@ $minimal_apt_get_install software-properties-common
 ## Upgrade all packages.
 apt-get dist-upgrade -y --no-install-recommends -o Dpkg::Options::="--force-confold"
 
-## Fix locale.
-$minimal_apt_get_install language-pack-en
-locale-gen --purge en_US.UTF-8
-update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LC_ALL=en_US.UTF-8
-echo -n en_US.UTF-8 > /etc/container_environment/LANG
-echo -n en_US.UTF-8 > /etc/container_environment/LC_CTYPE
-echo -n en_US.UTF-8 > /etc/container_environment/LC_ALL
-echo -n UTF-8 > /etc/container_environment/PYTHONIOENCODING
+
