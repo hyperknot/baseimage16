@@ -1,8 +1,12 @@
 # baseimage16
 
-**An updated version of baseimage-docker, including community provided Ubuntu 16.04 fixes**
+**A minimal, clean version of baseimage-docker, including community provided fixes**
 
-See full readme at the original [baseimage-docker repository](https://github.com/phusion/baseimage-docker). I will be checking and merging PRs in this repo regularly.
+See full readme at the original [baseimage-docker repository](https://github.com/phusion/baseimage-docker). 
+
+1.x -> Ubuntu 16.04
+
+2.x -> Ubuntu 18.04
 
 
 ## How to use

@@ -22,7 +22,7 @@ ln -s /etc/container_environment.sh /etc/profile.d/
 $minimal_apt_get_install runit
 
 ## Install a syslog daemon and logrotate.
-[ "$DISABLE_SYSLOG" -eq 0 ] && /bd_build/services/syslog-ng/syslog-ng.sh || true
+/bd_build/services/syslog-ng/syslog-ng.sh || true
 
 ## Install cron daemon.
-[ "$DISABLE_CRON" -eq 0 ] && /bd_build/services/cron/cron.sh || true
+/bd_build/services/cron/cron.sh || true
