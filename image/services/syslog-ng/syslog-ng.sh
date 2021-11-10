@@ -15,7 +15,3 @@ touch /var/log/syslog
 chmod u=rw,g=r,o= /var/log/syslog
 cp $SYSLOG_NG_BUILD_PATH/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
-## Install logrotate.
-$minimal_apt_get_install logrotate
-cp $SYSLOG_NG_BUILD_PATH/logrotate.conf /etc/logrotate.conf
-cp $SYSLOG_NG_BUILD_PATH/logrotate_syslogng /etc/logrotate.d/syslog-ng
