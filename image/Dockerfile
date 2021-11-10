@@ -7,7 +7,8 @@ RUN /bd_build/prepare.sh && \
 	/bd_build/system_services.sh && \
 	/bd_build/utilities.sh && \
 	/bd_build/cleanup.sh && \
-    touch /etc/service/cron/down
+    touch /etc/service/cron/down && \
+    chmod -x /etc/my_init.d/10_syslog-ng.init
 
 WORKDIR /
 
@@ -17,6 +18,6 @@ ENV DEBIAN_FRONTEND="teletype" \
     LC_CTYPE="en_US.UTF-8" \
     LC_ALL="en_US.UTF-8" \
     PYTHONIOENCODING="UTF-8" \
-    HOME /root
+    HOME="/root"
 
 CMD ["/sbin/my_init"]
