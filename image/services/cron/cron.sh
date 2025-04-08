@@ -12,6 +12,7 @@ sed -i 's/^\s*session\s\+required\s\+pam_loginuid.so/# &/' /etc/pam.d/cron
 
 ## Remove useless cron entries.
 # Checks for lost+found and scans for mtab.
+rm -f /etc/cron.d/e2scrub_all
 rm -f /etc/cron.daily/apt-compat
 rm -f /etc/cron.daily/dpkg
 rm -f /etc/cron.daily/passwd
