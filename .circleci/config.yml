@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   build:
@@ -7,17 +7,21 @@ jobs:
       image_repo: baseimage16
 
     docker:
-      - image: circleci/python:3.7
+      - image: cimg/python:3.11
 
     steps:
       - checkout
-      - setup_remote_docker
 
+      - setup_remote_docker:
+          version: default
+
+
+      - run: python -V; pip -V
+      - run: pip install docker~=7.1.0 docker-squash~=1.2.0 --disable-pip-version-check
       - run:
-          command: docker build -t $image_user/$image_repo:build_cache .
+          command: docker build --shm-size 512M -t $image_user/$image_repo:build_cache .
           working_directory: image
 
-      - run: sudo pip install docker-squash --disable-pip-version-check
       - run: docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
 
       - run: docker images
@@ -28,7 +32,7 @@ jobs:
 
 workflows:
   version: 2
-  tagged-build:
+  tagged_build:
     jobs:
       - build:
           filters:
