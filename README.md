@@ -8,6 +8,8 @@ See full readme at the original [baseimage-docker repository](https://github.com
 
 2.x -> Ubuntu 18.04
 
+3.x -> Ubuntu 22.04
+
 
 ## How to use
 You can use this in your Dockerfile by setting the following FROM line.
